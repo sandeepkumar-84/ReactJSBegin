@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Card from './Components/Cards'
 
+
 /* older way of manupulating the html where the ids of the elements are grabbed at all the places where the value is required to be updated. 
 
 function App() {
@@ -94,8 +95,6 @@ function App()
   )
 }
 
-
-
 function App()
 {
    return(
@@ -109,8 +108,13 @@ function App()
 }
  */
 
-
-
-
+function App()
+{
+  return(
+    <>
+    <h1 className='bg-green-400'>test</h1>    
+    </>
+  )
+}
 
 export default App
