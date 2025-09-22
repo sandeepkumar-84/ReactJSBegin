@@ -4,6 +4,7 @@ react js beginning
 
 # Tailwind Installation in vite projects 
 1. npm install tailwindcss @tailwindcss/vite
+   
 2. Update vite.config
 
     /*
