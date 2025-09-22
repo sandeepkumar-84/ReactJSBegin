@@ -1,6 +1,9 @@
 # ReactJSBegin
 react js beginning 
 
+# Vite project 
+npm create vite@latest
+
 
 # Tailwind Installation in vite projects 
 1. npm install tailwindcss @tailwindcss/vite
@@ -25,4 +28,8 @@ react js beginning
 4. check tailwind 
 
   <h1 className='text-3xl bg-orange-500'>Currency Converter</h1>
+
+
+  5. for enablinng dark theme mode add the following in the index.css
+      @custom-variant dark (&:where(.dark, .dark *)); 
 
