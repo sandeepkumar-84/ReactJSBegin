@@ -31,5 +31,5 @@ npm create vite@latest
 
 
   5. for enablinng dark theme mode add the following in the index.css
-      @custom-variant dark (&:where(.dark, .dark *)); 
+    @custom-variant dark (&:where(.dark, .dark *)); 
 
