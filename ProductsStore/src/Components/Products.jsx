@@ -4,7 +4,6 @@ import useProductsApi from "../Hooks/useProductsApi";
 function Products()
 {
     const {dataProds,refresh} = useProductsApi(); 
-
     const [ProductName,SetProductName] = useState("");
     const [editid,SetEditId] = useState(null);
     const [editName, setEditName] = useState("");
@@ -15,7 +14,7 @@ function Products()
         if(ProductName.trim() == ""){alert("product Name cannot be empty;");return;} ;
 
 
-        const response = await fetch("https://localhost:7029/api/products",
+        const response = await fetch("http://localhost:8080/api/products",
             {
                 method:"POST",
                 headers:{"Content-Type": "application/json"},
@@ -46,7 +45,7 @@ function Products()
             return;
         }
 
-        const response = await fetch(`https://localhost:7029/api/products/${editid}`, {
+        const response = await fetch(`http://localhost:8080/api/products/${editid}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: editid, name: editName })
@@ -65,7 +64,7 @@ function Products()
         {
               alert("Delete Clicked");
 
-            const response = await fetch(`https://localhost:7029/api/products/${id}`,
+            const response = await fetch(`http://localhost:8080/api/products/${id}`,
 
                 {
                     "method":"DELETE",

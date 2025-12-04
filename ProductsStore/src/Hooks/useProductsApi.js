@@ -9,7 +9,7 @@ function useProductsApi()
     useEffect(
          ()=>{
 
-            fetch("https://localhost:7029/api/products")
+            fetch("http://localhost:8080/api/products")
             .then(data=>data.json())
             .then(data=>SetData(data))
         },
