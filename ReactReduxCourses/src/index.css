@@ -95,3 +95,8 @@ footer
   padding: 10px;
   text-align: center;
 }
+
+.active {
+font-weight: bold;
+color: blue;
+}
