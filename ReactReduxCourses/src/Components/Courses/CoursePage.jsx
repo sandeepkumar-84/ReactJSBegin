@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {createCourse, deleteCourse} from '../../Redux/Actions/courseActions';
+import React, {useState,useEffect } from "react";
+import {createCourse, deleteCourse, loadCourses} from '../../Redux/Actions/courseActions';
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -8,21 +8,26 @@ export default function CoursePage()
 const courses = useSelector(state=>state.courses);
 const dispatch = useDispatch();
 
-const [course, setCourse] = useState({title:""});
+const [course, setCourse] = useState({name:""});
 const [courseTitle, setCourseTitle] = useState("");
 
-const handleOnChange = event => { setCourse({ ...course, title: event.target.value });
+const handleOnChange = event => { setCourse({ ...course, name: event.target.value });
 }
+
+useEffect(() => {
+    dispatch(loadCourses());
+  }, [dispatch]);
 
 const handleDelete = (courseToDelete) => 
 {     
+
     dispatch(deleteCourse(courseToDelete));
 }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createCourse(course));
-    setCourse({ title: "" });
+    setCourse({ name: "" });
   };
 
 
@@ -31,7 +36,7 @@ const handleDelete = (courseToDelete) =>
             <form onSubmit={handleSubmit}>
             <h2>Courses</h2>
             <h3>Add Courses</h3>
-            <input type="text"  onChange={handleOnChange} value={course.title}></input>
+            <input type="text"  onChange={handleOnChange} value={course.name}></input>
             <input type="submit" value="Save"></input>            
             </form>      
             <hr/>
@@ -39,8 +44,8 @@ const handleDelete = (courseToDelete) =>
             {
                 courses.map(c=> 
                 (                
-                    <div key={c.title}>
-                        {c.title}
+                    <div key={c.id}>
+                        {c.name}
                     <button onClick={()=>{handleDelete(c)}}> Delete</button>    
                     </div>) 
                 )
